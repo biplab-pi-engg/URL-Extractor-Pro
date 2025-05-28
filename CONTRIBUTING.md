@@ -71,11 +71,11 @@ When suggesting an enhancement:
 
 ## Code Style and Quality
 
-To maintain a consistent code style and ensure code quality, this project uses ESLint for linting and Prettier for code formatting. These tools are configured in `package.json` and their respective configuration files (`.eslintrc.json`, `.prettierrc.json`).
+To maintain a consistent code style and ensure code quality, this project uses ESLint for linting, Prettier for code formatting, and Jest for unit testing. These tools are configured in `package.json` and their respective configuration files (`.eslintrc.json`, `.prettierrc.json`).
 
 **1. Install Development Dependencies:**
 
-Before you can run the linter or formatter, you need to install the project's development dependencies (which include ESLint and Prettier). From the root of the project, run:
+Before you can run the linter, formatter, or tests, you need to install the project's development dependencies (which include ESLint, Prettier, and Jest). From the root of the project, run:
 
 ```bash
 npm install
@@ -107,12 +107,29 @@ Prettier is an opinionated code formatter that enforces a consistent style by pa
   npm run format
   ```
 
+**4. Testing with Jest:**
+
+The project uses Jest for unit testing JavaScript modules. Test files are located in `js/__tests__` directories and have a `.test.js` or `.spec.js` extension.
+
+- To run all unit tests once:
+  ```bash
+  npm test
+  ```
+  This will execute all test files and output the results to the console.
+
+- To run tests in watch mode (useful during development, as tests re-run automatically when files change):
+  ```bash
+  npm run test:watch
+  ```
+
 **Before Submitting Pull Requests:**
 
 Please ensure you run these tools on your code before submitting a pull request:
 
 1.  Run `npm run lint` to check for any linting errors. Try to fix them manually or by using `npm run lint:fix`.
 2.  Run `npm run format` to ensure your code style is consistent with the project's standards.
+3.  Run `npm test` to execute all unit tests. Ensure all tests pass.
+4.  If you are adding new features or fixing bugs, please add new unit tests or update existing ones to cover your changes.
 
 This helps streamline the review process and maintain a high quality, consistent codebase.
 

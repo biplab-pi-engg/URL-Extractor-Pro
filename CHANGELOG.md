@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-05-15
+
+### Added
+- **Development Tooling**:
+  - ESLint for JavaScript linting to enforce code style and catch errors.
+  - Prettier for automated code formatting to ensure consistent style.
+  - Jest for unit testing, with initial tests for UI helper functions (`formatTimestamp`, `escapeHtml`), utility functions (`generateId`), and regex input validation (`validateRegexInput`).
+- **Project Documentation**:
+  - Updated `CONTRIBUTING.md` to include guidelines for using ESLint, Prettier, and Jest.
+  - Added `package.json` with scripts for linting, formatting, and testing.
+  - Added configuration files: `.eslintrc.json`, `.prettierrc.json`, `.prettierignore`.
+  - Updated `.gitignore` to include `node_modules/`, `package-lock.json`, and Jest's `coverage/` directory.
+
+### Changed
+- **Codebase Refactoring**:
+  - Significantly refactored `popup.js` by modularizing its core functionalities into separate JavaScript modules:
+    - `js/constants.js`: For shared constants like storage keys and default values.
+    - `js/storage.js`: For all interactions with `chrome.storage.local` (loading/saving data).
+    - `js/ui.js`: For UI helper functions (e.g., `showStatus`, `formatTimestamp`, `escapeHtml`, `displayGroupedUrls`, `openUrlInBackground`).
+    - `js/utils.js`: For general utility functions (e.g., `generateId`).
+    - `js/regex.js`: For managing regex patterns, including CRUD operations, UI rendering for the regex list, and input validation.
+    - `js/history.js`: For managing the extraction history, including adding items, rendering the history list, and clearing history.
+    - `js/extractor.js`: For the main URL extraction logic from the current page's HTML.
+  - `popup.js` now primarily acts as an orchestrator, initializing modules and handling top-level event listeners.
+- **Code Quality & Consistency**:
+  - Applied ESLint and Prettier rules across the JavaScript codebase (implicitly, as part of their setup).
+  - Improved code organization and maintainability through modularization.
+  - Enhanced input validation for regex patterns in `js/regex.js` by extracting it into a testable `validateRegexInput` function.
+- **Build & Contribution Process**:
+  - Standardized development workflow with linting, formatting, and testing scripts in `package.json`.
+
 ## [1.2.1] - 2025-05-12
 
 ### Fixed
