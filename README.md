@@ -95,10 +95,11 @@ Click the extension icon in your toolbar to open the popup. Use the tabs at the 
 To work on the extension code:
 
 1.  Follow the "Installation From Source" steps above to load the unpacked extension.
-2.  Make changes to the code (`popup.js`, `popup.html`, `popup.css`, `manifest.json`).
+2.  Make changes to the code (primarily in `popup.html`, `popup.css`, `manifest.json`, and the JavaScript modules within the `js/` directory, with `popup.js` as the main entry point).
 3.  Go back to `chrome://extensions/`.
 4.  Click the refresh icon (circular arrow) on the "URL Extractor Pro" card.
 5.  Reopen the extension popup to see your changes. Use the browser's Developer Tools (F12) on the popup or the target page for debugging (`console.log`, etc.).
+6.  For a smoother development experience, this project is set up with ESLint (for linting), Prettier (for formatting), and Jest (for unit testing). You can run these tools using npm scripts like `npm run lint`, `npm run format`, and `npm test`. See `CONTRIBUTING.md` for more details on these tools.
 
 ## Persistence
 
